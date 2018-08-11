@@ -1,0 +1,42 @@
+#app {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  grid-template-rows: 1fr 2fr 2fr;
+}
+
+#app * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#app button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+#app header.light_theme {
+  background-color: #8eb9a8;
+}
+
+#app #article_top.light_theme {
+  background-color: #fdcfb7;
+}
+
+#app #article_bottom.light_theme {
+  background-color: #f4828c;
+}
+
+#app header.dark_theme {
+  background-color: #ffbc67;
+}
+
+#app #article_top.dark_theme {
+  background-color: #da727e;
+}
+
+#app #article_bottom.dark_theme {
+  background-color: #ac6c82;
+}

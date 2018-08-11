@@ -1,0 +1,20 @@
+{
+  "name": "rm1wn74nln",
+  "version": "0.0.7",
+  "description": null,
+  "keywords": [],
+  "main": "index.js",
+  "dependencies": {
+    "react": "16.4.2",
+    "react-dom": "16.4.2"
+  },
+  "devDependencies": {
+    "react-scripts": "1.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
