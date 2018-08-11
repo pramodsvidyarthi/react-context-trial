@@ -1,11 +1,40 @@
 import React, { createContext } from "react";
 import { render } from "react-dom";
-import "./styles.css";
+import styled, { css } from "styled-components";
 
-const styles = {
-  fontFamily: "sans-serif",
-  textAlign: "center"
-};
+const AppWrapper = styled.div`
+  font-family: sans-serif;
+  text-align: center;
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  grid-template-rows: 1fr 2fr 2fr;
+
+  & * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
+const Header = styled.header`
+  background-color: #8eb9a8;
+  ${props =>
+    props.isDarkTheme &&
+    css`
+      background-color: #ffbc67;
+    `};
+`;
+
+const Article = styled.article`
+  background-color: ${props => props.color};
+`;
+
+const Button = styled.button`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+`;
 
 const { Provider: ThemeProvider, Consumer: ThemeConsumer } = createContext();
 
@@ -20,24 +49,24 @@ class App extends React.Component {
   };
   render() {
     return (
-      <div id="app" style={styles}>
-        <button onClick={this.changeTheme}>Change Theme</button>
+      <AppWrapper id="app">
+        <Button onClick={this.changeTheme}>Change Theme</Button>
         <ThemeProvider value={this.state}>
           <ThemeConsumer>
             {({ theme }) => (
               <React.Fragment>
-                <header className={theme}>Header</header>
-                <article id="article_top" className={theme}>
+                <Header isDarkTheme={theme === "dark_theme"}>header</Header>
+                <Article color={theme === "dark_theme" ? "#fdcfb7" : "#da727e"}>
                   Article 1
-                </article>
-                <article id="article_bottom" className={theme}>
+                </Article>
+                <Article color={theme === "dark_theme" ? "#f4828c" : "#ac6c82"}>
                   Article 2
-                </article>
+                </Article>
               </React.Fragment>
             )}
           </ThemeConsumer>
         </ThemeProvider>
-      </div>
+      </AppWrapper>
     );
   }
 }
